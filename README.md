@@ -149,7 +149,23 @@ ls -1t "$LOG_DIR"/deploy-prep-*.log | tail -n +6 | xargs -r rm -f
 - `[ -d "dir" ]` - Tests if directory exists
 - `pm2 reload` - Gracefully reloads app (0-downtime), falls back to `start` if not running
 
-### 3. PM2 System Service (`pm2-ubuntu.service`)
+### 3. ecosystem.config.js
+
+**Location:** `/home/ubuntu/ecosystem.config.js`
+
+**Purpose:** Build the project
+
+```bash
+module.exports = {
+  apps: [{
+    name: "",
+    script: "docker",
+    args: "compose up --build",
+  }]
+}
+```
+
+### 4. PM2 System Service (`pm2-ubuntu.service`)
 
 **Location:** `/etc/systemd/system/pm2-ubuntu.service`
 
