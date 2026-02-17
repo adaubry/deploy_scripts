@@ -127,9 +127,6 @@ pm2 flush
 # Clean the mess
 docker compose down
 
-# Build application
-docker compose up --build -d
-
 # Verify .env exists
 [ -f "docker-compose.yml" ] || { echo "Missing docker-compose.yml file"; exit 1; }
 
